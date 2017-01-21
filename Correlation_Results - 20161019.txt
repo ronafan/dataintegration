@@ -1,0 +1,753 @@
+-------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  reslts
+       log:  \\server\share\Analytics\clients\SunPower\ad hoc\Correlation_Results.txt
+  log type:  text
+ opened on:  19 Oct 2016, 14:31:36
+
+. /****************************************
+>         SunPower Correlation Analysis
+> 
+>         Creater -      B-Peckham
+>         Date Create    10/19/2016
+>         Date Modified  ...
+>                                    
+>         Purpose: Identify correlations between 
+>                         channel metrics and all MQLs attributed
+>                         paid digital tactics.
+> 
+> ***************************************/
+. qui log off reslts
+
+. /*As of 20161018 - all adobe visitor and form completion data is spoiled and rendered non-beneficial for use in anlysis*/
+> 
+> /*_____________________________________________________________________________
+> ALL DIGITAL EFFORTS*/
+> pwcorr ww spend impressions clicks paidmqls if inrange(ww,54,92), sig;
+
+             |       ww    spend impres~s   clicks paidmqls
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+       spend |   0.0781   1.0000 
+             |   0.6365
+             |
+ impressions |  -0.3446   0.8279   1.0000 
+             |   0.0317   0.0000
+             |
+      clicks |   0.0875   0.8752   0.8295   1.0000 
+             |   0.5961   0.0000   0.0000
+             |
+    paidmqls |  -0.3973   0.2649   0.2093   0.1061   1.0000 
+             |   0.0123   0.1032   0.2009   0.5205
+             |
+
+.  /*time range of 2016*/
+> pwcorr ww l1_spend l1_impressions l1_clicks paidmqls if inrange(ww,54,92), sig;
+
+             |       ww l1_spend l1_imp~s l1_cli~s paidmqls
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+    l1_spend |   0.0611   1.0000 
+             |   0.7116
+             |
+l1_impress~s |  -0.3884   0.8143   1.0000 
+             |   0.0145   0.0000
+             |
+   l1_clicks |   0.0766   0.8739   0.8200   1.0000 
+             |   0.6432   0.0000   0.0000
+             |
+    paidmqls |  -0.3973   0.2263   0.2317   0.1087   1.0000 
+             |   0.0123   0.1660   0.1558   0.5101
+             |
+
+. pwcorr ww l2_spend l2_impressions l2_clicks paidmqls if inrange(ww,54,92), sig;
+
+             |       ww l2_spend l2_imp~s l2_cli~s paidmqls
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+    l2_spend |  -0.0667   1.0000 
+             |   0.6865
+             |
+l2_impress~s |  -0.6122   0.7341   1.0000 
+             |   0.0000   0.0000
+             |
+   l2_clicks |  -0.1564   0.8577   0.7747   1.0000 
+             |   0.3418   0.0000   0.0000
+             |
+    paidmqls |  -0.3973   0.2269   0.3296   0.3351   1.0000 
+             |   0.0123   0.1649   0.0405   0.0370
+             |
+
+. pwcorr ww spend impressions clicks organicmqls if inrange(ww,54,92), sig;
+
+             |       ww    spend impres~s   clicks organi~s
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+       spend |   0.0781   1.0000 
+             |   0.6365
+             |
+ impressions |  -0.3446   0.8279   1.0000 
+             |   0.0317   0.0000
+             |
+      clicks |   0.0875   0.8752   0.8295   1.0000 
+             |   0.5961   0.0000   0.0000
+             |
+ organicmqls |  -0.0136  -0.2718  -0.2677  -0.3166   1.0000 
+             |   0.9345   0.0942   0.0994   0.0496
+             |
+
+. pwcorr ww l1_spend l1_impressions l1_clicks organicmqls if inrange(ww,54,92), sig;
+
+             |       ww l1_spend l1_imp~s l1_cli~s organi~s
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+    l1_spend |   0.0611   1.0000 
+             |   0.7116
+             |
+l1_impress~s |  -0.3884   0.8143   1.0000 
+             |   0.0145   0.0000
+             |
+   l1_clicks |   0.0766   0.8739   0.8200   1.0000 
+             |   0.6432   0.0000   0.0000
+             |
+ organicmqls |  -0.0136  -0.3167  -0.2589  -0.3213   1.0000 
+             |   0.9345   0.0495   0.1115   0.0461
+             |
+
+. pwcorr ww l2_spend l2_impressions l2_clicks organicmqls if inrange(ww,54,92), sig;
+
+             |       ww l2_spend l2_imp~s l2_cli~s organi~s
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+    l2_spend |  -0.0667   1.0000 
+             |   0.6865
+             |
+l2_impress~s |  -0.6122   0.7341   1.0000 
+             |   0.0000   0.0000
+             |
+   l2_clicks |  -0.1564   0.8577   0.7747   1.0000 
+             |   0.3418   0.0000   0.0000
+             |
+ organicmqls |  -0.0136  -0.3003  -0.2165  -0.1979   1.0000 
+             |   0.9345   0.0632   0.1857   0.2272
+             |
+
+. pwcorr ww spend impressions clicks spdappointments if inrange(ww,54,92), sig;
+
+             |       ww    spend impres~s   clicks spdapp~s
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+       spend |   0.0781   1.0000 
+             |   0.6365
+             |
+ impressions |  -0.3446   0.8279   1.0000 
+             |   0.0317   0.0000
+             |
+      clicks |   0.0875   0.8752   0.8295   1.0000 
+             |   0.5961   0.0000   0.0000
+             |
+spdappoint~s |  -0.1584   0.1469  -0.0053  -0.0658   1.0000 
+             |   0.3354   0.3722   0.9745   0.6905
+             |
+
+. pwcorr ww l1_spend l1_impressions l1_clicks spdappointments if inrange(ww,54,92), sig;
+
+             |       ww l1_spend l1_imp~s l1_cli~s spdapp~s
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+    l1_spend |   0.0611   1.0000 
+             |   0.7116
+             |
+l1_impress~s |  -0.3884   0.8143   1.0000 
+             |   0.0145   0.0000
+             |
+   l1_clicks |   0.0766   0.8739   0.8200   1.0000 
+             |   0.6432   0.0000   0.0000
+             |
+spdappoint~s |  -0.1584   0.0653  -0.0367  -0.1543   1.0000 
+             |   0.3354   0.6930   0.8246   0.3484
+             |
+
+. pwcorr ww l2_spend l2_impressions l2_clicks spdappointments if inrange(ww,54,92), sig;
+
+             |       ww l2_spend l2_imp~s l2_cli~s spdapp~s
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+    l2_spend |  -0.0667   1.0000 
+             |   0.6865
+             |
+l2_impress~s |  -0.6122   0.7341   1.0000 
+             |   0.0000   0.0000
+             |
+   l2_clicks |  -0.1564   0.8577   0.7747   1.0000 
+             |   0.3418   0.0000   0.0000
+             |
+spdappoint~s |  -0.1584   0.1029   0.0675   0.0514   1.0000 
+             |   0.3354   0.5328   0.6829   0.7560
+             |
+
+. /*_____________________________________________________________________________
+> SEARCH*/
+> 
+> pwcorr ww spend_search impressions_search clicks_search paidmqls if inrange(ww,54,92), sig;
+
+             |       ww spend_~h impres~h clicks~h paidmqls
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+spend_search |  -0.1431   1.0000 
+             |   0.3847
+             |
+impression~h |  -0.0005   0.8226   1.0000 
+             |   0.9976   0.0000
+             |
+clicks_sea~h |  -0.2113   0.8920   0.9334   1.0000 
+             |   0.1967   0.0000   0.0000
+             |
+    paidmqls |  -0.3973   0.5039   0.0622   0.2647   1.0000 
+             |   0.0123   0.0011   0.7069   0.1034
+             |
+
+. pwcorr ww l1_spend_search l1_impressions_search l1_clicks_search paidmqls if inrange(ww,54,92), sig;
+
+             |       ww l1_spe~h l1_imp~h l1_cli~h paidmqls
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+l1_spend_s~h |  -0.1506   1.0000 
+             |   0.3603
+             |
+l1_impress~h |  -0.0691   0.7981   1.0000 
+             |   0.6759   0.0000
+             |
+l1_clicks_~h |  -0.2543   0.8807   0.9289   1.0000 
+             |   0.1182   0.0000   0.0000
+             |
+    paidmqls |  -0.3973   0.4657   0.0713   0.3075   1.0000 
+             |   0.0123   0.0028   0.6663   0.0569
+             |
+
+. pwcorr ww l2_spend_search l2_impressions_search l2_clicks_search paidmqls if inrange(ww,54,92), sig;
+
+             |       ww l2_spe~h l2_imp~h l2_cli~h paidmqls
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+l2_spend_s~h |  -0.2119   1.0000 
+             |   0.1953
+             |
+l2_impress~h |  -0.2934   0.7673   1.0000 
+             |   0.0699   0.0000
+             |
+l2_clicks_~h |  -0.3937   0.8535   0.9326   1.0000 
+             |   0.0132   0.0000   0.0000
+             |
+    paidmqls |  -0.3973   0.4355   0.2104   0.3927   1.0000 
+             |   0.0123   0.0056   0.1986   0.0134
+             |
+
+. pwcorr ww spend_search impressions_search clicks_search organicmqls if inrange(ww,54,92), sig;
+
+             |       ww spend_~h impres~h clicks~h organi~s
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+spend_search |  -0.1431   1.0000 
+             |   0.3847
+             |
+impression~h |  -0.0005   0.8226   1.0000 
+             |   0.9976   0.0000
+             |
+clicks_sea~h |  -0.2113   0.8920   0.9334   1.0000 
+             |   0.1967   0.0000   0.0000
+             |
+ organicmqls |  -0.0136  -0.3196  -0.3275  -0.3491   1.0000 
+             |   0.9345   0.0473   0.0418   0.0294
+             |
+
+. pwcorr ww l1_spend_search l1_impressions_search l1_clicks_search organicmqls if inrange(ww,54,92), sig;
+
+             |       ww l1_spe~h l1_imp~h l1_cli~h organi~s
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+l1_spend_s~h |  -0.1506   1.0000 
+             |   0.3603
+             |
+l1_impress~h |  -0.0691   0.7981   1.0000 
+             |   0.6759   0.0000
+             |
+l1_clicks_~h |  -0.2543   0.8807   0.9289   1.0000 
+             |   0.1182   0.0000   0.0000
+             |
+ organicmqls |  -0.0136  -0.3299  -0.3288  -0.2958   1.0000 
+             |   0.9345   0.0403   0.0410   0.0675
+             |
+
+. pwcorr ww l2_spend_search l2_impressions_search l2_clicks_search organicmqls if inrange(ww,54,92), sig;
+
+             |       ww l2_spe~h l2_imp~h l2_cli~h organi~s
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+l2_spend_s~h |  -0.2119   1.0000 
+             |   0.1953
+             |
+l2_impress~h |  -0.2934   0.7673   1.0000 
+             |   0.0699   0.0000
+             |
+l2_clicks_~h |  -0.3937   0.8535   0.9326   1.0000 
+             |   0.0132   0.0000   0.0000
+             |
+ organicmqls |  -0.0136  -0.2557  -0.2759  -0.2063   1.0000 
+             |   0.9345   0.1161   0.0891   0.2076
+             |
+
+. pwcorr ww spend_search impressions_search clicks_search spdappointments if inrange(ww,54,92), sig;
+
+             |       ww spend_~h impres~h clicks~h spdapp~s
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+spend_search |  -0.1431   1.0000 
+             |   0.3847
+             |
+impression~h |  -0.0005   0.8226   1.0000 
+             |   0.9976   0.0000
+             |
+clicks_sea~h |  -0.2113   0.8920   0.9334   1.0000 
+             |   0.1967   0.0000   0.0000
+             |
+spdappoint~s |  -0.1584   0.2706  -0.0461   0.0634   1.0000 
+             |   0.3354   0.0956   0.7805   0.7015
+             |
+
+. pwcorr ww l1_spend_search l1_impressions_search l1_clicks_search spdappointments if inrange(ww,54,92), sig;
+
+             |       ww l1_spe~h l1_imp~h l1_cli~h spdapp~s
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+l1_spend_s~h |  -0.1506   1.0000 
+             |   0.3603
+             |
+l1_impress~h |  -0.0691   0.7981   1.0000 
+             |   0.6759   0.0000
+             |
+l1_clicks_~h |  -0.2543   0.8807   0.9289   1.0000 
+             |   0.1182   0.0000   0.0000
+             |
+spdappoint~s |  -0.1584   0.2336  -0.1293   0.0138   1.0000 
+             |   0.3354   0.1523   0.4329   0.9333
+             |
+
+. pwcorr ww l2_spend_search l2_impressions_search l2_clicks_search spdappointments if inrange(ww,54,92), sig;
+
+             |       ww l2_spe~h l2_imp~h l2_cli~h spdapp~s
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+l2_spend_s~h |  -0.2119   1.0000 
+             |   0.1953
+             |
+l2_impress~h |  -0.2934   0.7673   1.0000 
+             |   0.0699   0.0000
+             |
+l2_clicks_~h |  -0.3937   0.8535   0.9326   1.0000 
+             |   0.0132   0.0000   0.0000
+             |
+spdappoint~s |  -0.1584   0.3076  -0.0354   0.1241   1.0000 
+             |   0.3354   0.0568   0.8306   0.4515
+             |
+
+. /*_____________________________________________________________________________
+> SOCIAL*/
+> pwcorr ww spend_social impressions_social clicks_social paidmqls if inrange(ww,54,92), sig;
+
+             |       ww spend_~l impres~l clicks~l paidmqls
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+spend_social |  -0.3732   1.0000 
+             |   0.0193
+             |
+impression~l |  -0.6753   0.8782   1.0000 
+             |   0.0000   0.0000
+             |
+clicks_soc~l |   0.1998   0.5584   0.3846   1.0000 
+             |   0.2227   0.0002   0.0156
+             |
+    paidmqls |  -0.3973   0.4868   0.5443   0.0673   1.0000 
+             |   0.0123   0.0017   0.0003   0.6839
+             |
+
+. pwcorr ww l1_spend_social l1_impressions_social l1_clicks_social paidmqls if inrange(ww,54,92), sig;
+
+             |       ww l1_spe~l l1_imp~l l1_cli~l paidmqls
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+l1_spend_s~l |  -0.3498   1.0000 
+             |   0.0290
+             |
+l1_impress~l |  -0.6511   0.8804   1.0000 
+             |   0.0000   0.0000
+             |
+l1_clicks_~l |   0.2063   0.5638   0.3941   1.0000 
+             |   0.2078   0.0002   0.0131
+             |
+    paidmqls |  -0.3973   0.5274   0.5603   0.0524   1.0000 
+             |   0.0123   0.0006   0.0002   0.7515
+             |
+
+. pwcorr ww l2_spend_social l2_impressions_social l2_clicks_social paidmqls if inrange(ww,54,92), sig;
+
+             |       ww l2_spe~l l2_imp~l l2_cli~l paidmqls
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+l2_spend_s~l |  -0.3703   1.0000 
+             |   0.0203
+             |
+l2_impress~l |  -0.6723   0.8785   1.0000 
+             |   0.0000   0.0000
+             |
+l2_clicks_~l |   0.0087   0.7423   0.5334   1.0000 
+             |   0.9582   0.0000   0.0005
+             |
+    paidmqls |  -0.3973   0.5815   0.5911   0.3571   1.0000 
+             |   0.0123   0.0001   0.0001   0.0256
+             |
+
+. pwcorr ww spend_social impressions_social clicks_social organicmqls if inrange(ww,54,92), sig;
+
+             |       ww spend_~l impres~l clicks~l organi~s
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+spend_social |  -0.3732   1.0000 
+             |   0.0193
+             |
+impression~l |  -0.6753   0.8782   1.0000 
+             |   0.0000   0.0000
+             |
+clicks_soc~l |   0.1998   0.5584   0.3846   1.0000 
+             |   0.2227   0.0002   0.0156
+             |
+ organicmqls |  -0.0136  -0.1696  -0.1162  -0.2732   1.0000 
+             |   0.9345   0.3019   0.4811   0.0925
+             |
+
+. pwcorr ww l1_spend_social l1_impressions_social l1_clicks_social organicmqls if inrange(ww,54,92), sig;
+
+             |       ww l1_spe~l l1_imp~l l1_cli~l organi~s
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+l1_spend_s~l |  -0.3498   1.0000 
+             |   0.0290
+             |
+l1_impress~l |  -0.6511   0.8804   1.0000 
+             |   0.0000   0.0000
+             |
+l1_clicks_~l |   0.2063   0.5638   0.3941   1.0000 
+             |   0.2078   0.0002   0.0131
+             |
+ organicmqls |  -0.0136  -0.2002  -0.1350  -0.3359   1.0000 
+             |   0.9345   0.2217   0.4125   0.0366
+             |
+
+. pwcorr ww l2_spend_social l2_impressions_social l2_clicks_social organicmqls if inrange(ww,54,92), sig;
+
+             |       ww l2_spe~l l2_imp~l l2_cli~l organi~s
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+l2_spend_s~l |  -0.3703   1.0000 
+             |   0.0203
+             |
+l2_impress~l |  -0.6723   0.8785   1.0000 
+             |   0.0000   0.0000
+             |
+l2_clicks_~l |   0.0087   0.7423   0.5334   1.0000 
+             |   0.9582   0.0000   0.0005
+             |
+ organicmqls |  -0.0136  -0.2685  -0.1613  -0.1844   1.0000 
+             |   0.9345   0.0984   0.3265   0.2610
+             |
+
+. pwcorr ww spend_social impressions_social clicks_social spdappointments if inrange(ww,54,92), sig;
+
+             |       ww spend_~l impres~l clicks~l spdapp~s
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+spend_social |  -0.3732   1.0000 
+             |   0.0193
+             |
+impression~l |  -0.6753   0.8782   1.0000 
+             |   0.0000   0.0000
+             |
+clicks_soc~l |   0.1998   0.5584   0.3846   1.0000 
+             |   0.2227   0.0002   0.0156
+             |
+spdappoint~s |  -0.1584   0.0257   0.1525  -0.1351   1.0000 
+             |   0.3354   0.8766   0.3540   0.4122
+             |
+
+. pwcorr ww l1_spend_social l1_impressions_social l1_clicks_social spdappointments if inrange(ww,54,92), sig;
+
+             |       ww l1_spe~l l1_imp~l l1_cli~l spdapp~s
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+l1_spend_s~l |  -0.3498   1.0000 
+             |   0.0290
+             |
+l1_impress~l |  -0.6511   0.8804   1.0000 
+             |   0.0000   0.0000
+             |
+l1_clicks_~l |   0.2063   0.5638   0.3941   1.0000 
+             |   0.2078   0.0002   0.0131
+             |
+spdappoint~s |  -0.1584   0.1892   0.2047  -0.2237   1.0000 
+             |   0.3354   0.2486   0.2114   0.1709
+             |
+
+. pwcorr ww l2_spend_social l2_impressions_social l2_clicks_social spdappointments if inrange(ww,54,92), sig;
+
+             |       ww l2_spe~l l2_imp~l l2_cli~l spdapp~s
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+l2_spend_s~l |  -0.3703   1.0000 
+             |   0.0203
+             |
+l2_impress~l |  -0.6723   0.8785   1.0000 
+             |   0.0000   0.0000
+             |
+l2_clicks_~l |   0.0087   0.7423   0.5334   1.0000 
+             |   0.9582   0.0000   0.0005
+             |
+spdappoint~s |  -0.1584   0.2505   0.3262   0.0974   1.0000 
+             |   0.3354   0.1239   0.0427   0.5552
+             |
+
+. /*_____________________________________________________________________________
+> DISPLAY*/
+> pwcorr ww spend_display impressions_display clicks_display paidmqls if inrange(ww,54,92), sig;
+
+             |       ww spend_~y impres~y clicks~y paidmqls
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+spend_disp~y |   0.0779   1.0000 
+             |   0.6372
+             |
+impression~y |  -0.5019   0.2996   1.0000 
+             |   0.0011   0.0639
+             |
+clicks_dis~y |   0.2584   0.8352   0.2661   1.0000 
+             |   0.1122   0.0000   0.1016
+             |
+    paidmqls |  -0.3973   0.0141  -0.2563  -0.2090   1.0000 
+             |   0.0123   0.9323   0.1152   0.2015
+             |
+
+. pwcorr ww l1_spend_display l1_impressions_display l1_clicks_display paidmqls if inrange(ww,54,92), sig;
+
+             |       ww l1_spe~y l1_imp~y l1_cli~y paidmqls
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+l1_spend_d~y |   0.0833   1.0000 
+             |   0.6142
+             |
+l1_impress~y |  -0.5474   0.2863   1.0000 
+             |   0.0003   0.0772
+             |
+l1_clicks_~y |   0.2634   0.8355   0.2411   1.0000 
+             |   0.1052   0.0000   0.1392
+             |
+    paidmqls |  -0.3973  -0.1068  -0.2065  -0.2352   1.0000 
+             |   0.0123   0.5176   0.2072   0.1494
+             |
+
+. pwcorr ww l2_spend_display l2_impressions_display l2_clicks_display paidmqls if inrange(ww,54,92), sig;
+
+             |       ww l2_spe~y l2_imp~y l2_cli~y paidmqls
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+l2_spend_d~y |  -0.0970   1.0000 
+             |   0.5570
+             |
+l2_impress~y |  -0.5622   0.4494   1.0000 
+             |   0.0002   0.0041
+             |
+l2_clicks_~y |   0.1589   0.7828   0.2115   1.0000 
+             |   0.3338   0.0000   0.1961
+             |
+    paidmqls |  -0.3973  -0.2393  -0.1681  -0.2130   1.0000 
+             |   0.0123   0.1422   0.3063   0.1929
+             |
+
+. pwcorr ww spend_display impressions_display clicks_display organicmqls if inrange(ww,54,92), sig;
+
+             |       ww spend_~y impres~y clicks~y organi~s
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+spend_disp~y |   0.0779   1.0000 
+             |   0.6372
+             |
+impression~y |  -0.5019   0.2996   1.0000 
+             |   0.0011   0.0639
+             |
+clicks_dis~y |   0.2584   0.8352   0.2661   1.0000 
+             |   0.1122   0.0000   0.1016
+             |
+ organicmqls |  -0.0136  -0.0845  -0.0707  -0.0519   1.0000 
+             |   0.9345   0.6090   0.6690   0.7538
+             |
+
+. pwcorr ww l1_spend_display l1_impressions_display l1_clicks_display organicmqls if inrange(ww,54,92), sig;
+
+             |       ww l1_spe~y l1_imp~y l1_cli~y organi~s
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+l1_spend_d~y |   0.0833   1.0000 
+             |   0.6142
+             |
+l1_impress~y |  -0.5474   0.2863   1.0000 
+             |   0.0003   0.0772
+             |
+l1_clicks_~y |   0.2634   0.8355   0.2411   1.0000 
+             |   0.1052   0.0000   0.1392
+             |
+ organicmqls |  -0.0136  -0.1128   0.0361   0.0216   1.0000 
+             |   0.9345   0.4943   0.8271   0.8962
+             |
+
+. pwcorr ww l2_spend_display l2_impressions_display l2_clicks_display organicmqls if inrange(ww,54,92), sig;
+
+             |       ww l2_spe~y l2_imp~y l2_cli~y organi~s
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+l2_spend_d~y |  -0.0970   1.0000 
+             |   0.5570
+             |
+l2_impress~y |  -0.5622   0.4494   1.0000 
+             |   0.0002   0.0041
+             |
+l2_clicks_~y |   0.1589   0.7828   0.2115   1.0000 
+             |   0.3338   0.0000   0.1961
+             |
+ organicmqls |  -0.0136  -0.0551   0.0359   0.0683   1.0000 
+             |   0.9345   0.7388   0.8283   0.6796
+             |
+
+. pwcorr ww spend_display impressions_display clicks_display spdappointments if inrange(ww,54,92), sig;
+
+             |       ww spend_~y impres~y clicks~y spdapp~s
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+spend_disp~y |   0.0779   1.0000 
+             |   0.6372
+             |
+impression~y |  -0.5019   0.2996   1.0000 
+             |   0.0011   0.0639
+             |
+clicks_dis~y |   0.2584   0.8352   0.2661   1.0000 
+             |   0.1122   0.0000   0.1016
+             |
+spdappoint~s |  -0.1584   0.1802  -0.2496  -0.0530   1.0000 
+             |   0.3354   0.2723   0.1255   0.7486
+             |
+
+. pwcorr ww l1_spend_display l1_impressions_display l1_clicks_display spdappointments if inrange(ww,54,92), sig;
+
+             |       ww l1_spe~y l1_imp~y l1_cli~y spdapp~s
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+l1_spend_d~y |   0.0833   1.0000 
+             |   0.6142
+             |
+l1_impress~y |  -0.5474   0.2863   1.0000 
+             |   0.0003   0.0772
+             |
+l1_clicks_~y |   0.2634   0.8355   0.2411   1.0000 
+             |   0.1052   0.0000   0.1392
+             |
+spdappoint~s |  -0.1584   0.0112  -0.1883  -0.1191   1.0000 
+             |   0.3354   0.9460   0.2510   0.4702
+             |
+
+. pwcorr ww l2_spend_display l2_impressions_display l2_clicks_display spdappointments if inrange(ww,54,92), sig;
+
+             |       ww l2_spe~y l2_imp~y l2_cli~y spdapp~s
+-------------+---------------------------------------------
+          ww |   1.0000 
+             |
+             |
+l2_spend_d~y |  -0.0970   1.0000 
+             |   0.5570
+             |
+l2_impress~y |  -0.5622   0.4494   1.0000 
+             |   0.0002   0.0041
+             |
+l2_clicks_~y |   0.1589   0.7828   0.2115   1.0000 
+             |   0.3338   0.0000   0.1961
+             |
+spdappoint~s |  -0.1584  -0.0605  -0.1923  -0.2262   1.0000 
+             |   0.3354   0.7147   0.2408   0.1661
+             |
+
+. qui log close reslts;
